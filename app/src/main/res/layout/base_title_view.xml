@@ -15,12 +15,14 @@
 
     </data>
 
+    <!--android:clipToPadding="true"-->
+    <!--android:fitsSystemWindows="true"-->
     <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?android:actionBarSize"
-            android:background="@color/colorPrimary"
             android:minHeight="?android:actionBarSize"
+            android:background="@color/colorPrimary"
             app:contentInsetEnd="0dp"
             app:contentInsetStart="0dp"
             app:navigationIcon="@drawable/icon_back">
