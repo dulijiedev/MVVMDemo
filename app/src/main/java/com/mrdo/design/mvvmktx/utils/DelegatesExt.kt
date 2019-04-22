@@ -13,7 +13,8 @@ object DelegatesExt {
     fun <T> notNullSingleValue() = NotNullSingleValueVar<T>()
 
     fun <T> preference(
-        context: Context, name: String,
+        context: Context,
+        name: String,
         default: T
     ) = Preference(context, name, default)
 }
@@ -32,7 +33,8 @@ class NotNullSingleValueVar<T> {
 }
 
 class Preference<T>(
-    private val context: Context, private val name: String,
+    private val context: Context,
+    private val name: String,
     private val default: T
 ) {
 

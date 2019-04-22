@@ -45,7 +45,14 @@ object GlideUtils {
     /**
      * 设置图片
      */
-    fun setImage(obj: Any, imageView: ImageView, url: String) {
+    fun setImage(
+        obj: Any,
+        imageView: ImageView,
+        url: String,
+        circle: Boolean = false,
+        blur: Boolean = false,
+        roundedCorners: Boolean = false
+    ) {
         val requests: GlideRequests
         when (obj) {
             is Activity -> {
@@ -68,14 +75,27 @@ object GlideUtils {
             }
         }
 
-        requests.load(url)
+        var glideRequests = requests.load(url)
             .diskCacheStrategy(DiskCacheStrategy.ALL)//缓存
             .dontAnimate()//不显示动画
             .error(R.mipmap.ic_launcher)//出错
             .placeholder(R.mipmap.ic_launcher)//默认占位
-//            .fitCenter()//取中间
+            .fitCenter()//取中间
 //            .centerCrop()//图片centerCrop
-//            .circleCrop()//圆形
+        if (circle) {
+            glideRequests = glideRequests.circleCrop()
+        }
+        if (blur) {
+            glideRequests = glideRequests.apply(bitmapTransform(BlurTransformation(25)))
+        }
+        if (roundedCorners) {
+            glideRequests = glideRequests.apply(
+                bitmapTransform(
+                    RoundedCornersTransformation(100, 0, RoundedCornersTransformation.CornerType.ALL)
+                )
+            )
+        }
+        glideRequests
             .priority(Priority.HIGH)//设置加载优先级
             .into(imageView)
 

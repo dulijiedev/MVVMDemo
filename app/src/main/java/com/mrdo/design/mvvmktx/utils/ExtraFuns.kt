@@ -9,9 +9,9 @@ import com.mrdo.design.mvvmktx.glide.GlideUtils
  * Created by dulijie on 2019/3/27.
  */
 
-fun ImageView.setImage(activity: Activity, url: String) {
-    GlideUtils.setImage(activity, this, url)
-}
+//fun ImageView.setImage(activity: Activity, url: String) {
+//    GlideUtils.setImage(activity, this, url)
+//}
 
 //fun ImageView.setImage(fragment: Fragment, url: String) {
 //    GlideUtils.setImage(fragment, this, url)

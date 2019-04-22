@@ -13,7 +13,7 @@ import com.mrdo.design.mvvmktx.base.viewmodel.BaseViewModel
 import kotlinx.android.synthetic.main.base_title_view.*
 import java.lang.reflect.ParameterizedType
 
-abstract class BaseInjectAt<V : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity(), IBaseAt {
+abstract class BaseInjectAt<V : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity(), IBaseAction {
 
     lateinit var binding: V
     var viewModel: VM? = null
@@ -177,4 +177,6 @@ abstract class BaseInjectAt<V : ViewDataBinding, VM : BaseViewModel> : AppCompat
 
     override fun initObservable() {
     }
+
+
 }

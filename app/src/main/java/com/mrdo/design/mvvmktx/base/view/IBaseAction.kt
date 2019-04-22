@@ -3,7 +3,7 @@ package com.mrdo.design.mvvmktx.base.view
 /**
  * Created by dulijie on 2019/3/21.
  */
-interface IBaseAt{
+interface IBaseAction{
 
     /**
      * 初始化传递参数

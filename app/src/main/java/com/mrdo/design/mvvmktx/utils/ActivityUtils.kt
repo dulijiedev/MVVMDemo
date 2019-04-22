@@ -773,7 +773,7 @@ object ActivityUtils {
     /**
      * 共享元素
      */
-    fun getOptionsBundle(activity: Activity, shareElements: Array<out View>): Bundle? {
+    private fun getOptionsBundle(activity: Activity, shareElements: Array<out View>): Bundle? {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val len = shareElements.size
             val pairs = arrayOfNulls<Pair<View, String>>(len)
