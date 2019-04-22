@@ -7,6 +7,8 @@ import com.mrdo.design.mvvmktx.base.repository.AppRepository
 import com.mrdo.design.mvvmktx.base.viewmodel.BaseViewModel
 import com.mrdo.design.mvvmktx.data.BaseResponse
 import com.mrdo.design.mvvmktx.data.HomeData
+import com.mrdo.design.mvvmktx.datasource.VerifyCodeDataSource
+import com.mrdo.design.mvvmktx.datasource.VerifyCodeRepository
 import com.mrdo.design.mvvmktx.ext.lifecycle.bindLifecycle
 import com.mrdo.design.mvvmktx.nework.RetrofitManager
 import com.mrdo.design.mvvmktx.nework.exceptions.ApiException
@@ -39,5 +41,11 @@ class MainViewModel : BaseViewModel() {
                 }
 
             })
+    }
+
+    val emailDataSource = VerifyCodeRepository(VerifyCodeDataSource())
+
+    fun sendEmailCode(phoneNum: String) {
+        emailDataSource.sendEmail(phoneNum)
     }
 }
