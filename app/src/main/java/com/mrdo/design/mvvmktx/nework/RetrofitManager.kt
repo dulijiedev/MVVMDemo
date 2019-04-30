@@ -119,7 +119,7 @@ object RetrofitManager {
         val cache = Cache(cacheFile, 1024 * 1024 * 50) //50Mb 缓存的大小
         return OkHttpClient.Builder()
 //            .addInterceptor(addQueryParameterInterceptor())  //参数添加
-//            .addInterceptor(addHeaderInterceptor()) // token过滤
+            .addInterceptor(addHeaderInterceptor()) // token过滤
 //            .addInterceptor(addCacheInterceptor())
 //            .cookieJar(addCookieJar())
             .addInterceptor(httpLoggingInterceptor) //日志,所有的请求响应度看到
