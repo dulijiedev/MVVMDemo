@@ -43,6 +43,9 @@ object ActivityUtils {
         }
 
         override fun onActivityDestroyed(activity: Activity?) {
+            activity?.let {
+                sActivityList.remove()
+            }
         }
 
         override fun onActivitySaveInstanceState(activity: Activity?, outState: Bundle?) {
@@ -61,7 +64,7 @@ object ActivityUtils {
     }
 
     private fun setTopActivityWeakRef(activity: Activity) {
-        if (sTopActivityWeakRef == null || activity != sTopActivityWeakRef!!.get()) {
+        if (sTopActivityWeakRef == null || activity != sTopActivityWeakRef?.get()) {
             sTopActivityWeakRef = WeakReference(activity)
         }
     }
@@ -69,7 +72,7 @@ object ActivityUtils {
 
     fun getTopActivity(): Activity? {
         if (sTopActivityWeakRef != null) {
-            val activity = sTopActivityWeakRef!!.get()
+            val activity = sTopActivityWeakRef?.get()
             if (activity != null) {
                 return activity
             }

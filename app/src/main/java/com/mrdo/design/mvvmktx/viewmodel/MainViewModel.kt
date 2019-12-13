@@ -13,6 +13,8 @@ import com.mrdo.design.mvvmktx.ext.lifecycle.bindLifecycle
 import com.mrdo.design.mvvmktx.nework.RetrofitManager
 import com.mrdo.design.mvvmktx.nework.exceptions.ApiException
 import com.mrdo.design.mvvmktx.nework.observers.HttpObserver
+import okhttp3.*
+import java.io.IOException
 
 /**
  * Created by dulijie on 2019/3/21.
@@ -41,6 +43,20 @@ class MainViewModel : BaseViewModel() {
                 }
 
             })
+
+        val okHttpClient = OkHttpClient()
+        val request = Request.Builder()
+            .url("www.baidu.com")
+            .build()
+        val call = okHttpClient.newCall(request)
+        call.enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+            }
+
+        })
     }
 
     val emailDataSource = VerifyCodeRepository(VerifyCodeDataSource())
