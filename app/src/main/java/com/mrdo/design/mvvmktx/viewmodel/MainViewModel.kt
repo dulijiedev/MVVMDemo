@@ -46,7 +46,7 @@ class MainViewModel : BaseViewModel() {
 
         val okHttpClient = OkHttpClient()
         val request = Request.Builder()
-            .url("www.baidu.com")
+            .url("https://www.baidu.com/")
             .build()
         val call = okHttpClient.newCall(request)
         call.enqueue(object : Callback {
